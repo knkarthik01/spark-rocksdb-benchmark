@@ -30,7 +30,6 @@ I have created this project in similar lines for streaming performance scenarios
         --driver-memory 2g \
         --executor-memory 7g \
         --num-executors 1 \
-        --max-executors 1 \
         --executor-cores 4 \
         --conf spark.executor.memoryOverhead=3g \
         ./build/spark-benchmark.jar \
@@ -38,7 +37,7 @@ I have created this project in similar lines for streaming performance scenarios
         --rate-row-per-second "20000" \
         --output-mode "append" \
         --run-time-in-sec 1800 \
-        --shuffle-partition 8 \
+        --shuffle-partition 8
 
 ###### Analyze the progress
         /usr/lib/spark/bin/spark-submit \
