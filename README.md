@@ -6,10 +6,10 @@ we wanted to have performance benchmarks for various scenarios as part of the Ro
 I have created this project in similar lines for streaming performance scenarios. 
 
 ###### Build the project
-        sbt assemebly
+        sbt assembly
 
 ###### Use RocksDB State Storage
-        /usr/lib/spark/bin/spark-submit \
+        /usr/lib/spark/bin/spark-submit --conf spark.sql.streaming.stateStore.providerClass=org.apache.spark.sql.execution.streaming.state.RocksDBStateStoreProvider \
         --class com.qubole.spark.benchmark.streaming.states.StateStoreBenchmarkRunner \
         --driver-memory 2g \
         --executor-memory 7g \
@@ -22,8 +22,7 @@ I have created this project in similar lines for streaming performance scenarios
         --rate-row-per-second "20000" \
         --output-mode "append" \
         --run-time-in-sec 1800 \
-        --shuffle-partition 8 \
-        --use-rocks-db
+        --shuffle-partition 8
 
 ###### Use Memory State Storage
         /usr/lib/spark/bin/spark-submit \
