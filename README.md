@@ -1,4 +1,4 @@
-# Benchmark Utility for Spark Structured streaming on Amazon EMR
+# Benchmark Utility for Spark Structured Streaming on Amazon EMR
 
 We wanted to have performance benchmarks for various scenarios as part of the RocksDb State Storage implementation [SPARK-28120](https://issues.apache.org/jira/browse/SPARK-28120).
 This was specifically forked to run on Amazon EMR with intent to test Spark Structured Streaming on different instance types (Compute Optimzed, Memory Optimzed, Storage Optimized)
