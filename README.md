@@ -78,6 +78,14 @@ SSH into EMR Primary Node and clone this repo, change directory to benchmark fol
         | 3fc89a39-1cc3-46b...|        33|                         30.62|                1638.42|                48.19|                 8.57|            0.68| 
 
 
+###### Clean Up
+
+If you terminate Spark Jobs you had executed in previous steps, cluster would auto-terminate in 60 mins.
+If not, manually force terminate it from console and execute below CLI:
+
+        aws emr terminate-clusters --cluster-ids j-3KVXXXXXXX7UG j-WJ2XXXXXX8EU
+
+
 ## Acknowledgement
 
 [Jungtaek Lim](https://github.com/HeartSaVioR) and [Vikram](https://github.com/itsvikramagr) and for the original work for the structured streaming benchmarking.
