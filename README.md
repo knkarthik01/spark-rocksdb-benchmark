@@ -8,19 +8,19 @@ This was specifically forked to run on Amazon EMR with intent to test Spark Stru
 As part of this benchmark,launch 2 EMR Clusters (one with Compute optimzed instance and another with Memory Optimzed instance).
 Follow this link, if you are going to use [AWS Management Console](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-launch-with-quick-options.html)
 
-Cluster1:
-aws emr create-cluster \
+# Cluster1:
+`aws emr create-cluster \
     --log-uri s3://myBucket/myLog \
     --release-label emr-6.15.0 \
     --instance-groups InstanceGroupType=MASTER,InstanceCount=1,InstanceType=c5d.xlarge InstanceGroupType=CORE,InstanceCount=2,InstanceType=c5d.xlarge \
-    --auto-terminate
+    --auto-terminate`
 
-Cluster2:
-aws emr create-cluster \
+# Cluster2:
+`aws emr create-cluster \
     --log-uri s3://myBucket/myLog \
     --release-label emr-6.15.0 \
     --instance-groups InstanceGroupType=MASTER,InstanceCount=1,InstanceType=r5d.xlarge InstanceGroupType=CORE,InstanceCount=2,InstanceType=r5d.xlarge \
-    --auto-terminate
+    --auto-terminate`
 
 
 ###### Build the project
