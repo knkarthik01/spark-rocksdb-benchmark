@@ -58,6 +58,4 @@ This was specifically forked to run on Amazon EMR with intent to test Spark Stru
 
 ## Acknowledgement
 
-[Jungtaek Lim](https://github.com/HeartSaVioR) and  for the original work for the structured streaming benchmarking.
-[Jungtaek Lim](https://github.com/HeartSaVioR) pointed me to his github [project](https://github.com/HeartSaVioR/iot-trucking-app-spark-structured-streaming/tree/master/src/main/scala/com/hortonworks/spark/benchmark/streaming) which he has used for his benchmarks.
-I have created this project in similar lines for streaming performance scenarios. 
+[Jungtaek Lim](https://github.com/HeartSaVioR) and [Vikram](https://github.com/itsvikramagr) and for the original work for the structured streaming benchmarking.
