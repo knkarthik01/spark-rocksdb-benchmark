@@ -3,6 +3,7 @@ package com.qubole.spark.benchmark
 import org.apache.spark.sql.streaming.OutputMode
 import org.rogach.scallop.ScallopConf
 
+
 abstract class BenchmarkConf(args: Array[String]) extends ScallopConf(args) {
   import BenchmarkConf._
 
