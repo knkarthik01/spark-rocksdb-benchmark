@@ -22,6 +22,9 @@ Follow this link, if you are going to use [AWS Management Console](https://docs.
     --instance-groups InstanceGroupType=MASTER,InstanceCount=1,InstanceType=r5d.xlarge InstanceGroupType=CORE,InstanceCount=2,InstanceType=r5d.xlarge \
     --auto-terminate`
 
+SSH into EMR Primary Node and clone this repo:
+
+`git clone `
 
 ###### Build the project
         sbt assembly
