@@ -22,11 +22,12 @@ Follow this link, if you are going to use [AWS Management Console](https://docs.
     --instance-groups InstanceGroupType=MASTER,InstanceCount=1,InstanceType=r5d.xlarge InstanceGroupType=CORE,InstanceCount=2,InstanceType=r5d.xlarge \
     --auto-terminate`
 
-SSH into EMR Primary Node and clone this repo:
+SSH into EMR Primary Node and clone this repo, change directory to benchmark folder:
 
-`git clone `
+       `git clone https://github.com/knkarthik01/spark-rocksdb-benchmark.git`
+       cd spark-rocksdb-benchmark/
 
-###### Build the project
+###### Build the project and Execute Spark Streaming Jobs on both clusters (Open multiple windows to execute them in parallel, if needed)
         sbt assembly
 
 ###### Use RocksDB State Storage
