@@ -3,6 +3,24 @@
 We wanted to have performance benchmarks for various scenarios as part of the RocksDb State Storage implementation [SPARK-28120](https://issues.apache.org/jira/browse/SPARK-28120).
 This was specifically forked to run on Amazon EMR with intent to test Spark Structured Streaming on different instance types (Compute Optimzed, Memory Optimzed, Storage Optimized)
 
+###### Launch an Amazon EMR Cluster
+
+As part of this benchmark,launch 2 EMR Clusters (one with Compute optimzed instance and another with Memory Optimzed instance).
+Follow this link, if you are going to use [AWS Management Console](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-launch-with-quick-options.html)
+
+Cluster1:
+aws emr create-cluster \
+    --log-uri s3://myBucket/myLog \
+    --release-label emr-6.15.0 \
+    --instance-groups InstanceGroupType=MASTER,InstanceCount=1,InstanceType=c5d.xlarge InstanceGroupType=CORE,InstanceCount=2,InstanceType=c5d.xlarge \
+    --auto-terminate
+
+Cluster2:
+aws emr create-cluster \
+    --log-uri s3://myBucket/myLog \
+    --release-label emr-6.15.0 \
+    --instance-groups InstanceGroupType=MASTER,InstanceCount=1,InstanceType=r5d.xlarge InstanceGroupType=CORE,InstanceCount=2,InstanceType=r5d.xlarge \
+    --auto-terminate
 
 
 ###### Build the project
