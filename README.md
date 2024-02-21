@@ -1,15 +1,15 @@
 # Benchmark Utils for Structured streaming
 
-we wanted to have performance benchmarks for various scenarios as part of the RocksDb State Storage implementation [SPARK-28120](https://issues.apache.org/jira/browse/SPARK-28120) 
+We wanted to have performance benchmarks for various scenarios as part of the RocksDb State Storage implementation [SPARK-28120](https://issues.apache.org/jira/browse/SPARK-28120).
+This was specifically forked to run on Amazon EMR with intent to test Spark Structured Streaming on different instance types (Compute Optimzed, Memory Optimzed, Storage Optimized)
 
-[Jungtaek Lim](https://github.com/HeartSaVioR) pointed me to his github [project](https://github.com/HeartSaVioR/iot-trucking-app-spark-structured-streaming/tree/master/src/main/scala/com/hortonworks/spark/benchmark/streaming) which he has used for his benchmarks.
-I have created this project in similar lines for streaming performance scenarios. 
+
 
 ###### Build the project
         sbt assembly
 
 ###### Use RocksDB State Storage
-        /usr/lib/spark/bin/spark-submit --conf spark.sql.streaming.stateStore.providerClass=org.apache.spark.sql.execution.streaming.state.RocksDBStateStoreProvider \
+        spark-submit --conf spark.sql.streaming.stateStore.providerClass=org.apache.spark.sql.execution.streaming.state.RocksDBStateStoreProvider \
         --class com.qubole.spark.benchmark.streaming.states.StateStoreBenchmarkRunner \
         --driver-memory 2g \
         --executor-memory 7g \
@@ -25,7 +25,7 @@ I have created this project in similar lines for streaming performance scenarios
         --shuffle-partition 8
 
 ###### Use Memory State Storage
-        /usr/lib/spark/bin/spark-submit \
+        spark-submit \
         --class com.qubole.spark.benchmark.streaming.states.StateStoreBenchmarkRunner \
         --driver-memory 2g \
         --executor-memory 7g \
@@ -40,7 +40,7 @@ I have created this project in similar lines for streaming performance scenarios
         --shuffle-partition 8
 
 ###### Analyze the progress
-        /usr/lib/spark/bin/spark-submit \
+        spark-submit \
         --class com.qubole.spark.benchmark.streaming.states.AnalyzeProgress \
         --driver-memory 2g \
         --executor-memory 5g \
@@ -48,7 +48,7 @@ I have created this project in similar lines for streaming performance scenarios
         --max-executors 2 \
         --conf spark.executor.memoryOverhead=1g \
         ./build/spark-benchmark.jar \
-        "/tmp/queryStatus-rocksdb"
+         "hdfs:///tmp/queryStatus-rocksdb"
 
 ###### Sample Output 
 
@@ -58,4 +58,6 @@ I have created this project in similar lines for streaming performance scenarios
 
 ## Acknowledgement
 
-[Jungtaek Lim](https://github.com/HeartSaVioR) for the original work for the structured streaming benchmarking.
+[Jungtaek Lim](https://github.com/HeartSaVioR) and  for the original work for the structured streaming benchmarking.
+[Jungtaek Lim](https://github.com/HeartSaVioR) pointed me to his github [project](https://github.com/HeartSaVioR/iot-trucking-app-spark-structured-streaming/tree/master/src/main/scala/com/hortonworks/spark/benchmark/streaming) which he has used for his benchmarks.
+I have created this project in similar lines for streaming performance scenarios. 
