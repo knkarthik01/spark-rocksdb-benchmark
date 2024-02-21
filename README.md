@@ -81,7 +81,7 @@ SSH into EMR Primary Node and clone this repo, change directory to benchmark fol
 ###### Clean Up
 
 If you terminate Spark Jobs you had executed in previous steps, cluster would auto-terminate in 60 mins.
-If not, manually force terminate it from console and execute below CLI:
+If not, manually force terminate it from console or execute below CLI:
 
         aws emr terminate-clusters --cluster-ids j-3KVXXXXXXX7UG j-WJ2XXXXXX8EU
 
