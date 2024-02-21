@@ -79,7 +79,7 @@ target/
 unit-tests.log
 work/
 
-# For Hive
+# For Hive 
 TempStatsStore/
 metastore/
 metastore_db/
