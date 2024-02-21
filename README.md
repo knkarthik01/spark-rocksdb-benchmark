@@ -16,7 +16,7 @@ Follow this link, if you are going to use [AWS Management Console](https://docs.
     --auto-terminate`
 
 ##### Cluster2:
-`aws emr create-cluster \
+    aws emr create-cluster \
     --log-uri s3://myBucket/myLog \
     --release-label emr-6.15.0 \
     --instance-groups InstanceGroupType=MASTER,InstanceCount=1,InstanceType=r5d.xlarge InstanceGroupType=CORE,InstanceCount=2,InstanceType=r5d.xlarge \
@@ -24,7 +24,7 @@ Follow this link, if you are going to use [AWS Management Console](https://docs.
 
 SSH into EMR Primary Node and clone this repo, change directory to benchmark folder:
 
-       `git clone https://github.com/knkarthik01/spark-rocksdb-benchmark.git`
+       git clone https://github.com/knkarthik01/spark-rocksdb-benchmark.git
        cd spark-rocksdb-benchmark/
 
 ###### Build the project and Execute Spark Streaming Jobs on both clusters (Open multiple windows to execute them in parallel, if needed)
