@@ -9,18 +9,18 @@ As part of this benchmark,launch 2 EMR Clusters (one with Compute optimzed insta
 Follow this link, if you are going to use [AWS Management Console](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-launch-with-quick-options.html)
 
 ##### Cluster1:
-    aws emr create-cluster \
-    --log-uri s3://myBucket/myLog \
-    --release-label emr-6.15.0 \
-    --instance-groups InstanceGroupType=MASTER,InstanceCount=1,InstanceType=c5d.xlarge InstanceGroupType=CORE,InstanceCount=2,InstanceType=c5d.xlarge \
-    --auto-terminate
+        aws emr create-cluster  --name "ComputeOptimized" \
+        --log-uri s3://MyBucket/logs --applications Name=Spark \
+        --release-label emr-6.15.0 --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --service-role EMR_DefaultRole \
+        --instance-groups InstanceGroupType=MASTER,InstanceCount=1,InstanceType=c5d.xlarge InstanceGroupType=CORE,InstanceCount=2,InstanceType=c5d.xlarge \
+        --auto-terminate
 
 ##### Cluster2:
-    aws emr create-cluster \
-    --log-uri s3://myBucket/myLog \
-    --release-label emr-6.15.0 \
-    --instance-groups InstanceGroupType=MASTER,InstanceCount=1,InstanceType=r5d.xlarge InstanceGroupType=CORE,InstanceCount=2,InstanceType=r5d.xlarge \
-    --auto-terminate
+        aws emr create-cluster  --name "MemoryOptimized" \
+        --log-uri s3://MyBucket/logs --applications Name=Spark \
+        --release-label emr-6.15.0 --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --service-role EMR_DefaultRole \
+        --instance-groups InstanceGroupType=MASTER,InstanceCount=1,InstanceType=r5d.xlarge InstanceGroupType=CORE,InstanceCount=2,InstanceType=r5d.xlarge \
+        --auto-terminate
 
 SSH into EMR Primary Node and clone this repo, change directory to benchmark folder:
 
