@@ -27,6 +27,10 @@ Follow this link, if you are going to use [AWS Management Console](https://docs.
 SSH into EMR Primary Node and clone this repo, change directory to benchmark folder:
 
        sudo yum install git -y
+       curl -s "https://get.sdkman.io" | bash
+       source "$HOME/.sdkman/bin/sdkman-init.sh"
+       sdk version
+       sdk install sbt
        git clone https://github.com/knkarthik01/spark-rocksdb-benchmark.git
        cd spark-rocksdb-benchmark/
 
