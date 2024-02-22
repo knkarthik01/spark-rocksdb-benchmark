@@ -13,15 +13,16 @@ Follow this link, if you are going to use [AWS Management Console](https://docs.
                 --log-uri s3://mybucket/logs --applications Name=Spark \
                 --release-label emr-6.15.0 --ec2-attributes '{"InstanceProfile":"EMR_EC2_DefaultRole","EmrManagedMasterSecurityGroup":"sg-xxxxx","EmrManagedSlaveSecurityGroup":"sg-xxxxxxx","AdditionalMasterSecurityGroups":[],"AdditionalSlaveSecurityGroups":[],"SubnetId":"subnet-xxxxx"}' --service-role EMR_DefaultRole \
                 --instance-groups InstanceGroupType=MASTER,InstanceCount=1,InstanceType=c5d.xlarge InstanceGroupType=CORE,InstanceCount=2,InstanceType=c5d.xlarge \
-                --auto-terminate
-
+                --auto-termination-policy '{"IdleTimeout":3600}' \
+                --region "us-east-1"
 
 ##### Cluster2:
                 aws emr create-cluster  --name "MemoryOptimized" \
                 --log-uri s3://mybucket/logs --applications Name=Spark \
                 --release-label emr-6.15.0 --ec2-attributes '{"InstanceProfile":"EMR_EC2_DefaultRole","EmrManagedMasterSecurityGroup":"sg-xxxxx","EmrManagedSlaveSecurityGroup":"sg-xxxxxxx","AdditionalMasterSecurityGroups":[],"AdditionalSlaveSecurityGroups":[],"SubnetId":"subnet-xxxxx"}' --service-role EMR_DefaultRole \
                 --instance-groups InstanceGroupType=MASTER,InstanceCount=1,InstanceType=r5d.xlarge InstanceGroupType=CORE,InstanceCount=2,InstanceType=r5d.xlarge \
-                --auto-terminate
+                --auto-termination-policy '{"IdleTimeout":3600}' \
+                --region "us-east-1"
 
 SSH into EMR Primary Node and clone this repo, change directory to benchmark folder:
 
