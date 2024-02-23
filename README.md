@@ -43,7 +43,6 @@ SSH into EMR Primary Node and clone this repo, change directory to benchmark fol
         --driver-memory 2g \
         --executor-memory 7g \
         --num-executors 1 \
-        --max-executors 1 \
         --executor-cores 4 \
         --conf spark.executor.memoryOverhead=3g \
         ./build/spark-benchmark.jar \
